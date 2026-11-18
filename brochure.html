@@ -1,0 +1,280 @@
+<title>ASTRAQA Brochure</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: tri-fold brochure, two A4-landscape sheets (exterior / interior) of three panels each; panels stack on phones. Single print look. */
+:root{
+  --ink:#0B1220; --ink-2:#111B2E; --ink-3:#1E2A44;
+  --signal:#00D1A1; --blue:#007BFF; --lime:#00D1A1; --coral:#FF6B4A; --amber:#FFB21E;
+  --mist:#F3F5F8; --paper:#FFFFFF; --slate:#5B6B7C; --line:#E5E7EB;
+  --desk:#D9DEE6; --on-dark:#E8F1F5; --muted-dark:#9DB3C4;
+  --f-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--f-body);font-size:13px;line-height:1.5}
+.page{max-width:1200px;margin:0 auto;padding-block:32px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sheet{display:grid;grid-template-columns:repeat(3,1fr);aspect-ratio:297/210;max-width:100%;background:var(--paper);box-shadow:0 20px 50px -30px rgba(11,18,32,.55)}
+.sheet + .label{margin-top:26px}
+.panel{position:relative;padding:28px 26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.panel + .panel{border-left:1px dashed var(--line)}
+.dark{background:var(--ink);color:var(--on-dark)}
+.dark + .panel,.panel + .dark{border-left-color:transparent}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;text-wrap:balance}
+h2{font-size:21px;letter-spacing:-.01em}
+h3{font-size:14px}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);font-weight:600}
+.muted{color:var(--slate)}
+.dark .muted{color:var(--muted-dark)}
+ul{margin:0;padding-left:16px;display:grid;gap:4px}
+
+/* cover */
+.cover{justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:22px;letter-spacing:.02em}
+.logo span{color:var(--signal)}
+.cover-logo{display:block;width:100%;height:auto;border-radius:6px}
+.cover h1{font-size:clamp(26px,3.3vw,38px);letter-spacing:-.02em}
+.cover h1 em{font-style:normal;color:var(--signal)}
+.cover .trace{width:100%;height:auto}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--f-mono);font-weight:600;font-size:10px;padding:2px 7px;border-radius:4px}
+.t-pass{background:rgba(0,209,161,.16);color:var(--lime)}
+.t-bug{background:rgba(255,107,74,.2);color:var(--coral)}
+.t-trace{background:rgba(0,209,161,.18);color:var(--signal)}
+.motto{font-family:var(--f-mono);font-size:11px;color:var(--muted-dark)}
+
+/* report & promise */
+.rep{display:grid;gap:8px}
+.rep div{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
+.rep i{width:18px;height:18px;border-radius:50%;border:2px solid var(--signal);display:block;margin-top:1px}
+.split{display:grid;gap:10px}
+.box{border-radius:8px;padding:12px 14px}
+.box h3{margin-bottom:6px}
+.yes{background:rgba(0,209,161,.25)}
+.no{background:rgba(255,107,74,.12)}
+
+/* back panel */
+.back{justify-content:space-between}
+.contact{display:grid;gap:8px;font-family:var(--f-mono);font-size:11.5px}
+.contact span{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--ink-3);padding-bottom:6px}
+.contact b{color:var(--muted-dark);font-weight:400}
+.qr{width:96px;height:96px;border:2px dashed var(--ink-3);border-radius:8px;display:grid;place-items:center;font-family:var(--f-mono);font-size:10px;color:var(--muted-dark);text-align:center}
+.offer{background:var(--lime);color:var(--ink);border-radius:10px;padding:14px}
+.offer h3{font-size:16px}
+
+/* interior */
+.cmp{display:grid;gap:8px}
+.cmp div{display:grid;gap:2px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cmp .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)}
+.cmp s{color:var(--slate);text-decoration-color:var(--coral);text-decoration-thickness:2px}
+.cmp strong{font-family:var(--f-display);font-size:14px}
+.big{font-family:var(--f-display);font-size:15px;font-weight:600;line-height:1.35}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc div{border:1px solid var(--line);border-radius:8px;padding:9px 10px}
+.svc .n{font-family:var(--f-mono);font-size:9.5px;color:var(--signal);font-weight:600}
+.svc h3{font-size:12.5px;margin-top:2px}
+.ai{background:var(--ink);color:var(--on-dark);border-radius:10px;padding:14px;display:grid;gap:8px}
+.ai ul{color:var(--muted-dark)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative}
+.steps::before{content:"";position:absolute;left:12px;top:12px;bottom:12px;width:2px;background:linear-gradient(var(--blue),var(--signal))}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;position:relative}
+.steps b{width:26px;height:26px;border-radius:50%;background:var(--paper);border:2px solid var(--signal);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px}
+.steps li:last-child b{background:var(--lime);border-color:var(--lime)}
+.plans{display:grid;gap:6px}
+.plans div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:6px;align-items:baseline}
+.plans strong{font-family:var(--f-display)}
+.plans span{font-family:var(--f-mono);font-size:11.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fine{font-size:10.5px;color:var(--slate)}
+
+@media (max-width:900px){
+  .sheet{grid-template-columns:1fr;aspect-ratio:auto}
+  .panel + .panel{border-left:none;border-top:1px dashed var(--line)}
+}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.lang{display:flex;background:var(--ink);border-radius:999px;padding:3px}
+.lang button{font:600 12px var(--f-mono);color:var(--muted-dark);background:none;border:0;border-radius:999px;padding:6px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--signal);color:var(--ink)}
+.lang button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+@media print{
+  @page{size:A4 landscape;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff}
+  .page{padding:0;gap:0;max-width:none}
+  .topbar,.label{display:none!important}
+  .sheet{width:297mm;height:210mm;aspect-ratio:auto;box-shadow:none;grid-template-columns:repeat(3,1fr);break-after:page;overflow:hidden}
+  .sheet:last-child{break-after:auto}
+  .panel + .panel{border-left:1px dashed var(--line);border-top:none}
+  .dark + .panel,.panel + .dark{border-left-color:transparent}
+}
+</style>
+
+<div class="page">
+  <div class="topbar">
+    <span class="label" style="margin:0" data-i18n="ui.title">Brochure tríptico · ASTRAQA</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+  <div class="label"><span data-i18n="ui.ext">Cara exterior</span><span data-i18n="ui.extp">Solapa interior · Contraportada · Portada</span></div>
+  <div class="sheet">
+    <!-- inner flap -->
+    <div class="panel">
+      <div class="eyebrow" data-i18n="rep.e">Qué recibes</div>
+      <h2 data-i18n="rep.h">Un reporte que tu equipo usa el mismo día</h2>
+      <div class="rep">
+        <div><i></i><p data-i18n="rep.1"><b>Gravedad</b> · crítico, alto o medio, para saber qué arreglar primero.</p></div>
+        <div><i></i><p data-i18n="rep.2"><b>Pasos para reproducirlo</b> · en orden, hasta que el error aparece.</p></div>
+        <div><i></i><p data-i18n="rep.3"><b>Dispositivo y versión</b> · sistema, navegador y versión de tu app.</p></div>
+        <div><i></i><p data-i18n="rep.4"><b>Evidencia</b> · capturas o video cuando aplica.</p></div>
+        <div><i></i><p data-i18n="rep.5"><b>Alcance</b> · qué se cubrió y qué no, sin sorpresas.</p></div>
+      </div>
+      <div class="split">
+        <div class="box yes"><h3 data-i18n="yes.h">Lo que sí haremos</h3><ul data-i18n="yes.l"><li>Probar los flujos y dispositivos acordados</li><li>Priorizar por gravedad e impacto</li><li>Decirte qué quedó fuera</li></ul></div>
+        <div class="box no"><h3 data-i18n="no.h">Lo que no prometemos</h3><ul data-i18n="no.l"><li>Encontrar el 100 % de los errores</li><li>Probar fuera del alcance</li><li>Reemplazar las pruebas de tu equipo</li></ul></div>
+      </div>
+    </div>
+    <!-- back -->
+    <div class="panel dark back">
+      <div class="offer">
+        <div class="eyebrow" style="color:var(--ink)" data-i18n="off.e">Primer paso, sin costo</div>
+        <h3 data-i18n="off.h">Diagnóstico express</h3>
+        <p data-i18n="off.p">Probamos un flujo de tu app durante una hora y te enviamos un mini informe con lo que encontramos.</p>
+      </div>
+      <div style="display:grid;gap:14px">
+        <h2 data-i18n="ct.h">Hablemos</h2>
+        <div class="contact">
+          <span><b>WhatsApp</b>+591 60393170</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:end;justify-content:space-between">
+        <div class="qr" data-i18n="ct.qr">QR a<br>WhatsApp</div>
+        <p class="motto" data-i18n="ct.tz">Horario compatible con<br>Europa · LATAM · EE. UU.</p>
+      </div>
+    </div>
+    <!-- cover -->
+    <div class="panel dark cover">
+      <img class="cover-logo" src="img/astraqa-logo.png" alt="ASTRAQA, Quality. Always." width="1040" height="220">
+      <svg class="trace" viewBox="0 0 300 120" aria-hidden="true">
+        <defs><linearGradient id="bg1" x1="0" x2="1"><stop offset="0" stop-color="#007BFF"/><stop offset="1" stop-color="#00D1A1"/></linearGradient></defs>
+        <g stroke="#1E2A44"><line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="60" x2="300" y2="60"/><line x1="0" y1="90" x2="300" y2="90"/></g>
+        <path d="M0 95 L50 95 L75 35 L105 82 L135 52 L165 52 L190 22 L220 75 L250 42 L300 42" fill="none" stroke="url(#bg1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="75" cy="35" r="4.5" fill="#00D1A1"/><circle cx="105" cy="82" r="5.5" fill="#FF6B4A"/><circle cx="190" cy="22" r="4.5" fill="#00D1A1"/><circle cx="220" cy="75" r="5.5" fill="#FF6B4A"/><circle cx="300" cy="42" r="4.5" fill="#00D1A1"/>
+      </svg>
+      <div style="display:grid;gap:12px">
+        <div class="tags"><span class="tag t-trace">RUN</span><span class="tag t-pass">PASS</span><span class="tag t-bug">BUG-142</span><span class="tag t-pass">GO</span></div>
+        <h1 data-i18n="cov.h">Lanza rápido. <em>Lanza con evidencia.</em></h1>
+        <p class="muted" data-i18n="cov.p">QA como servicio para startups, pymes y agencias. Especialistas en productos hechos con IA.</p>
+      </div>
+      <p class="motto" data-i18n="cov.m">Innovación en QA para un software más confiable</p>
+    </div>
+  </div>
+
+  <div class="label"><span data-i18n="ui.int">Cara interior</span><span data-i18n="ui.intp">Problema · Servicios · Cómo trabajamos</span></div>
+  <div class="sheet">
+    <div class="panel">
+      <div class="eyebrow" data-i18n="pr.e">El problema</div>
+      <h2 data-i18n="pr.h">La IA acelera el código. El testing se quedó atrás.</h2>
+      <p class="muted" data-i18n="pr.p">Quien programa prueba su propio código, y los bugs, regresiones y vulnerabilidades llegan a producción. Las consultoras grandes no están hechas para tu tamaño.</p>
+      <div class="cmp">
+        <div><span class="k" data-i18n="c1.k">Para empezar</span><s data-i18n="c1.t">Semanas de contratos</s><strong data-i18n="c1.u">Empezamos en días.</strong></div>
+        <div><span class="k" data-i18n="c2.k">Costo</span><s data-i18n="c2.t">Mínimo 6 meses y un equipo completo</s><strong data-i18n="c2.u">Pagas el alcance que necesitas.</strong></div>
+        <div><span class="k" data-i18n="c3.k">Qué compras</span><s data-i18n="c3.t">Horas de un tester</s><strong data-i18n="c3.u">Errores encontrados, explicados y priorizados.</strong></div>
+      </div>
+      <p class="big" data-i18n="pr.big">Somos tu área de QA externa: flexible, con costo variable y dentro de tus herramientas (Jira, GitHub, Slack).</p>
+    </div>
+    <div class="panel">
+      <div class="eyebrow" data-i18n="sv.e">Qué hacemos</div>
+      <h2 data-i18n="sv.h">Un equipo de QA completo</h2>
+      <div class="svc">
+        <div><span class="n">01</span><h3 data-i18n="sv.1">Estrategia de calidad</h3></div>
+        <div><span class="n">02</span><h3 data-i18n="sv.2">Testing manual y exploratorio</h3></div>
+        <div><span class="n">03</span><h3 data-i18n="sv.3">Automatización E2E, API y móvil</h3></div>
+        <div><span class="n">04</span><h3 data-i18n="sv.4">Performance y Web Vitals</h3></div>
+        <div><span class="n">05</span><h3 data-i18n="sv.5">Usabilidad y accesibilidad WCAG 2.2</h3></div>
+        <div><span class="n">06</span><h3 data-i18n="sv.6">Seguridad básica OWASP</h3></div>
+      </div>
+      <div class="ai">
+        <div class="eyebrow" style="color:var(--lime)" data-i18n="ai.e">QA para la era de la IA</div>
+        <h3 style="font-size:15px" data-i18n="ai.h">Usamos IA para probar más rápido. Y sabemos probar la IA.</h3>
+        <ul data-i18n="ai.l"><li>Revisión de código y flujos generados con IA</li><li>Evaluación de chatbots: exactitud y alucinaciones</li><li>Red teaming: prompt injection y fuga de datos</li><li>Agentes que escriben y mantienen tests, con revisión humana</li></ul>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow" data-i18n="st.e">Cómo trabajamos</div>
+      <h2 data-i18n="st.h">Cuatro pasos</h2>
+      <ol class="steps">
+        <li><b>1</b><p data-i18n="st.1"><strong>Cuéntanos qué probar.</strong> <span class="muted">Tu app y lo que más te preocupa.</span></p></li>
+        <li><b>2</b><p data-i18n="st.2"><strong>Acordamos el alcance.</strong> <span class="muted">Flujos, dispositivos y plazo por escrito.</span></p></li>
+        <li><b>3</b><p data-i18n="st.3"><strong>Probamos.</strong> <span class="muted">Documentamos cada fallo con evidencia.</span></p></li>
+        <li><b>4</b><p data-i18n="st.4"><strong>Recibes el reporte.</strong> <span class="muted">Priorizado, reproducible, con Go/No-Go.</span></p></li>
+      </ol>
+      <div class="eyebrow" style="margin-top:4px" data-i18n="pl.e">Planes</div>
+      <div class="plans">
+        <div><strong data-i18n="pl.1">Lanzamiento</strong><span data-i18n="pl.1s">puntual · 1–2 sem</span></div>
+        <div><strong data-i18n="pl.2">Esencial</strong><span data-i18n="pl.2s">mensual · 30 h</span></div>
+        <div><strong data-i18n="pl.3">Crecimiento</strong><span data-i18n="pl.3s">mensual · 60 h</span></div>
+        <div><strong data-i18n="pl.4">Integral</strong><span data-i18n="pl.4s">mensual · 80–120 h</span></div>
+      </div>
+      <p class="fine" data-i18n="pl.f">Cotización a medida tras el diagnóstico gratuito.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+var T = {
+en:{'ui.title':'Tri-fold brochure · ASTRAQA','ui.ext':'Outside','ui.extp':'Inner flap · Back cover · Front cover','ui.int':'Inside','ui.intp':'Problem · Services · How we work',
+'rep.e':'What you get','rep.h':'A report your team can use the same day',
+'rep.1':'<b>Severity</b> · critical, high or medium, so you know what to fix first.','rep.2':'<b>Steps to reproduce</b> · in order, until the bug appears.','rep.3':'<b>Device and version</b> · OS, browser and app version.','rep.4':'<b>Evidence</b> · screenshots or video when relevant.','rep.5':'<b>Scope</b> · what was and wasn’t covered, no surprises.',
+'yes.h':'What we will do','yes.l':'<li>Test the agreed flows and devices</li><li>Prioritize by severity and impact</li><li>Tell you what was left out</li>',
+'no.h':'What we don’t promise','no.l':'<li>Finding 100% of bugs</li><li>Testing outside the scope</li><li>Replacing your team’s own tests</li>',
+'off.e':'First step, free','off.h':'Express assessment','off.p':'We test one flow of your app for an hour and send you a mini report with what we found.',
+'ct.h':'Let’s talk','ct.mail':'Email','ct.qr':'QR to<br>WhatsApp','ct.tz':'Working hours for<br>Europe · LATAM · US',
+'cov.h':'Ship fast. <em>Ship with evidence.</em>','cov.p':'QA as a service for startups, SMBs and agencies. Specialists in AI-built products.','cov.m':'QA innovation for more reliable software',
+'pr.e':'The problem','pr.h':'AI speeds up coding. Testing fell behind.','pr.p':'Developers test their own code, and bugs, regressions and vulnerabilities reach production. Big consultancies aren’t built for your size.',
+'c1.k':'Getting started','c1.t':'Weeks of contracts','c1.u':'We start within days.','c2.k':'Cost','c2.t':'6-month minimum and a full team','c2.u':'You pay for the scope you need.','c3.k':'What you buy','c3.t':'Hours of a tester','c3.u':'Bugs found, explained and prioritized.',
+'pr.big':'We are your external QA team: flexible, variable cost and inside your tools (Jira, GitHub, Slack).',
+'sv.e':'What we do','sv.h':'A complete QA team','sv.1':'Quality strategy','sv.2':'Manual and exploratory testing','sv.3':'E2E, API and mobile automation','sv.4':'Performance and Web Vitals','sv.5':'Usability and WCAG 2.2 accessibility','sv.6':'Baseline OWASP security',
+'ai.e':'QA for the AI era','ai.h':'We use AI to test faster. And we know how to test AI.','ai.l':'<li>Review of AI-generated code and flows</li><li>Chatbot evaluation: accuracy and hallucinations</li><li>Red teaming: prompt injection and data leaks</li><li>Agents that write and maintain tests, human-reviewed</li>',
+'st.e':'How we work','st.h':'Four steps','st.1':'<strong>Tell us what to test.</strong> <span class="muted">Your app and what worries you most.</span>','st.2':'<strong>We agree on scope.</strong> <span class="muted">Flows, devices and timeline in writing.</span>','st.3':'<strong>We test.</strong> <span class="muted">We document every failure with evidence.</span>','st.4':'<strong>You get the report.</strong> <span class="muted">Prioritized, reproducible, with Go/No-Go.</span>',
+'pl.e':'Plans','pl.1':'Launch','pl.1s':'one-off · 1–2 wks','pl.2':'Essential','pl.2s':'monthly · 30 h','pl.3':'Growth','pl.3s':'monthly · 60 h','pl.4':'Full','pl.4s':'monthly · 80–120 h','pl.f':'Custom quote after the free assessment.'},
+pt:{'ui.title':'Folder trifold · ASTRAQA','ui.ext':'Face externa','ui.extp':'Aba interna · Contracapa · Capa','ui.int':'Face interna','ui.intp':'Problema · Serviços · Como trabalhamos',
+'rep.e':'O que você recebe','rep.h':'Um relatório que sua equipe usa no mesmo dia',
+'rep.1':'<b>Gravidade</b> · crítica, alta ou média, para saber o que corrigir primeiro.','rep.2':'<b>Passos para reproduzir</b> · em ordem, até o erro aparecer.','rep.3':'<b>Dispositivo e versão</b> · sistema, navegador e versão do app.','rep.4':'<b>Evidências</b> · capturas ou vídeo quando aplicável.','rep.5':'<b>Escopo</b> · o que foi e o que não foi coberto, sem surpresas.',
+'yes.h':'O que faremos','yes.l':'<li>Testar os fluxos e dispositivos combinados</li><li>Priorizar por gravidade e impacto</li><li>Dizer o que ficou de fora</li>',
+'no.h':'O que não prometemos','no.l':'<li>Encontrar 100% dos erros</li><li>Testar fora do escopo</li><li>Substituir os testes da sua equipe</li>',
+'off.e':'Primeiro passo, sem custo','off.h':'Diagnóstico expresso','off.p':'Testamos um fluxo do seu app durante uma hora e enviamos um mini relatório com o que encontramos.',
+'ct.h':'Vamos conversar','ct.mail':'E-mail','ct.qr':'QR para<br>WhatsApp','ct.tz':'Horário compatível com<br>Europa · LATAM · EUA',
+'cov.h':'Lance rápido. <em>Lance com evidências.</em>','cov.p':'QA como serviço para startups, PMEs e agências. Especialistas em produtos feitos com IA.','cov.m':'Inovação em QA para um software mais confiável',
+'pr.e':'O problema','pr.h':'A IA acelera o código. Os testes ficaram para trás.','pr.p':'Quem programa testa o próprio código, e bugs, regressões e vulnerabilidades chegam à produção. As grandes consultorias não são feitas para o seu tamanho.',
+'c1.k':'Para começar','c1.t':'Semanas de contratos','c1.u':'Começamos em dias.','c2.k':'Custo','c2.t':'Mínimo de 6 meses e uma equipe completa','c2.u':'Você paga o escopo de que precisa.','c3.k':'O que você compra','c3.t':'Horas de um testador','c3.u':'Erros encontrados, explicados e priorizados.',
+'pr.big':'Somos sua área de QA externa: flexível, com custo variável e dentro das suas ferramentas (Jira, GitHub, Slack).',
+'sv.e':'O que fazemos','sv.h':'Uma equipe de QA completa','sv.1':'Estratégia de qualidade','sv.2':'Testes manuais e exploratórios','sv.3':'Automação E2E, API e mobile','sv.4':'Performance e Web Vitals','sv.5':'Usabilidade e acessibilidade WCAG 2.2','sv.6':'Segurança básica OWASP',
+'ai.e':'QA para a era da IA','ai.h':'Usamos IA para testar mais rápido. E sabemos testar IA.','ai.l':'<li>Revisão de código e fluxos gerados com IA</li><li>Avaliação de chatbots: exatidão e alucinações</li><li>Red teaming: prompt injection e vazamento de dados</li><li>Agentes que escrevem e mantêm testes, com revisão humana</li>',
+'st.e':'Como trabalhamos','st.h':'Quatro passos','st.1':'<strong>Diga o que testar.</strong> <span class="muted">Seu app e o que mais preocupa.</span>','st.2':'<strong>Definimos o escopo.</strong> <span class="muted">Fluxos, dispositivos e prazo por escrito.</span>','st.3':'<strong>Testamos.</strong> <span class="muted">Documentamos cada falha com evidências.</span>','st.4':'<strong>Você recebe o relatório.</strong> <span class="muted">Priorizado, reproduzível, com Go/No-Go.</span>',
+'pl.e':'Planos','pl.1':'Lançamento','pl.1s':'pontual · 1–2 sem','pl.2':'Essencial','pl.2s':'mensal · 30 h','pl.3':'Crescimento','pl.3s':'mensal · 60 h','pl.4':'Integral','pl.4s':'mensal · 80–120 h','pl.f':'Orçamento sob medida após o diagnóstico gratuito.'}
+};
+var ES = {}, nodes = document.querySelectorAll('[data-i18n]');
+nodes.forEach(function(n){ ES[n.getAttribute('data-i18n')] = n.innerHTML; });
+T.es = ES;
+function setLang(l, save){
+  if(!T[l]) l = 'es';
+  document.documentElement.lang = l;
+  nodes.forEach(function(n){ var k = n.getAttribute('data-i18n'); n.innerHTML = T[l][k] || ES[k]; });
+  document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'); });
+  if(save){ try{ localStorage.setItem('astraqa-lang', l); }catch(e){} }
+}
+document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang, true); }); });
+window.addEventListener('hashchange', function(){ var h = location.hash.slice(1); if(T[h]) setLang(h, true); });
+var start = location.hash.slice(1);
+if(!T[start]){ try{ start = localStorage.getItem('astraqa-lang'); }catch(e){ start = null; } }
+setLang(start || 'es', false);
+})();
+</script>
